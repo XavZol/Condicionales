@@ -3,22 +3,19 @@ import javax.swing.JOptionPane;
 
 
 
-/* Pedir dos numeros y decir cual es el mayor o si son iguales */
+/* Hacer un programa que lea un carácter por teclado y compruebe si es una letra mayúscula */
 
 public class Condicionales {
 
     public static void main(String[] args) {
-        int numero1, numero2;
+        char letra;
 
-        numero1 = Integer.parseInt(JOptionPane.showInputDialog("Digite un numero: "));
-        numero2 = Integer.parseInt(JOptionPane.showInputDialog("Digite otro numero: "));
-        
-        if(numero1 > numero2) {
-            JOptionPane.showMessageDialog(null, "El numero mayor es: "+numero1);
-        } else if(numero2 > numero1) {
-            JOptionPane.showMessageDialog(null, "El numero mayor es: "+numero2);
+        letra = JOptionPane.showInputDialog("Digite una letra:").charAt(0);
+
+        if(Character.isUpperCase(letra)) {
+            JOptionPane.showMessageDialog(null, "Es una letra MAYUSCULA");
         } else {
-            JOptionPane.showMessageDialog(null, "Ambos numeros son iguales.");
+            JOptionPane.showMessageDialog(null, "Es una letra minuscula");
         }
     }
 }
