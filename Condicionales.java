@@ -1,27 +1,21 @@
 
 import javax.swing.JOptionPane;
 
-/* Condicional con switch */
+/* valor = (Condicion) ? valor1 : valor2 */
 
 public class Condicionales {
 
     public static void main(String[] args) {
-        int dato;
+        int numero;
+        String mensaje;
 
-        dato = Integer.parseInt(JOptionPane.showInputDialog("Digite un numero entre 1 y 5: "));
+        numero = Integer.parseInt(JOptionPane.showInputDialog("Digite un numero: "));
 
-        switch(dato) {
-            case 1: JOptionPane.showMessageDialog(null, "Este es el numero 1");
-                break;
-            case 2: JOptionPane.showMessageDialog(null, "Este es el numero 2");
-                break;
-            case 3: JOptionPane.showMessageDialog(null, "Este es el numero 3");
-                break;
-            case 4: JOptionPane.showMessageDialog(null, "Este es el numero 4");
-                break;
-            case 5: JOptionPane.showMessageDialog(null, "Este es el numero 5");
-                break;
-            default: JOptionPane.showMessageDialog(null, "El numero no esta en el ragdo de 1 a 5");
-        }
+        mensaje = (numero%2==0) ? "Es par" : "Es impar";
+
+        JOptionPane.showMessageDialog(null, mensaje);
+
+        // Funciona de la misma manera
+        // JOptionPane.showMessageDialog(null, (numero%2==0) ? "Es par" : "Es impar");
     }
 }
