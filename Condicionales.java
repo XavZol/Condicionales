@@ -3,21 +3,24 @@ import javax.swing.JOptionPane;
 
 
 
-/*Descuento de 20% a los clientes que superen los $300*/
+/* un obrero necesita calcular su salario semanal, el cual se obtiene de la siguiente manera:
+Si trabaja 40horas o menos se le paga $16 por hora
+Si trabaja mas de 40 horas se le paga $16 por cada una de las primeras 40 horas y $20 por cada hora extra*/
 
 public class Condicionales {
 
     public static void main(String[] args) {
-        float precioCompra, descuento;
+        int horasTrabajadas;
+        float salarioTotal;
 
-        precioCompra = Float.parseFloat(JOptionPane.showInputDialog("Digite el precio de compra: "));
+        horasTrabajadas = Integer.parseInt(JOptionPane.showInputDialog("Digite el numero de horas trabajadas: "));
 
-        if(precioCompra > 300) {
-            descuento = precioCompra * 0.2f;
-            precioCompra -= descuento;
-            JOptionPane.showMessageDialog(null, "El precio de compra con descuento es: "+precioCompra);
+        if(horasTrabajadas <= 40) {
+            salarioTotal = horasTrabajadas * 16;
         } else {
-            JOptionPane.showMessageDialog(null, "El precio de compra es: "+precioCompra);
+            salarioTotal = (40 * 16) + ((horasTrabajadas-40) * 20);
         }
+
+        JOptionPane.showMessageDialog(null, "El salario total es: "+salarioTotal);
     }
 }
