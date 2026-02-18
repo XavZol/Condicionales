@@ -3,23 +3,29 @@ import javax.swing.JOptionPane;
 
 
 
-/* Hacer un programa que diga si dos numeros son pares o impares
-Condicionales compuestos*/
+/* Pedir tres números y mostrarlos ordenados de mayr a menor*/
 
 public class Condicionales {
 
     public static void main(String[] args) {
-        int numero1, numero2;
+        int n1, n2, n3;
 
-        numero1 = Integer.parseInt(JOptionPane.showInputDialog("Digite el primer numero: "));
-        numero2 = Integer.parseInt(JOptionPane.showInputDialog("Digite el segundo numero: "));
+        n1 = Integer.parseInt(JOptionPane.showInputDialog("Digite el primer numero: "));
+        n2 = Integer.parseInt(JOptionPane.showInputDialog("Digite el segundo numero: "));
+        n3 = Integer.parseInt(JOptionPane.showInputDialog("Digite el tercer numero: "));
 
-        if((numero1%2==0) && (numero2%2==0)) {
-            JOptionPane.showMessageDialog(null, "Ambos números son pares.");
-        } else if ((numero1%2!=0) && (numero2%2!=0)) {
-            JOptionPane.showMessageDialog(null, "Ambos números son impares.");
+        if((n1>n2) && (n2>n3)) {
+            JOptionPane.showMessageDialog(null, "Orden: "+n1+" - "+n2+" - "+n3);
+        } else if ((n1>n3) && (n3>n2)) {
+            JOptionPane.showMessageDialog(null, "Orden: "+n1+" - "+n3+" - "+n2);
+        } else if ((n2>n1) && (n1>n3)) {
+            JOptionPane.showMessageDialog(null, "Orden: "+n2+" - "+n1+" - "+n3);
+        } else if ((n2>n3) && (n3>n1)) {
+            JOptionPane.showMessageDialog(null, "Orden: "+n2+" - "+n3+" - "+n1);
+        } else if ((n3>n1) && (n1>n2)) {
+            JOptionPane.showMessageDialog(null, "Orden: "+n3+" - "+n1+" - "+n2);
         } else {
-            JOptionPane.showMessageDialog(null, "Algún número es par y el otro es impar.");
+            JOptionPane.showMessageDialog(null, "Orden: "+n3+" - "+n2+" - "+n1);
         }
     }
 }
