@@ -1,26 +1,43 @@
 
+
+/* Construir un programa que simule el funcionamiento de una calculadora que pueda realizar las cuatro operaciones aritméticas
+básicas (suma, resta, multiplicación y división) con valores numéricos enteros. El usuario debe especificar la operación con el primer 
+carácter del primer parámetro de la línea de comandos: S o s para la suma, R o r para la resta, P, p, M, o m para el producto y D o d para 
+la divisiónsun.  */
+
 import javax.swing.JOptionPane;
 
-/* Indicar si la fecha es correcta, considerando meses de 28, 30 y 31 días. Sin años bisiestos. */
 public class Condicionales {
 
     public static void main(String[] args) {
-        int dia, mes, año;
+        int numero1, numero2, suma, resta, mult, div;
+        char operacion;
 
-        dia = Integer.parseInt(JOptionPane.showInputDialog("Digite el día: "));
-        mes = Integer.parseInt(JOptionPane.showInputDialog("Digite el mes: "));
-        año = Integer.parseInt(JOptionPane.showInputDialog("Digite el año: "));
+        numero1 = Integer.parseInt(JOptionPane.showInputDialog("Digite el primer numero: "));
+        numero2 = Integer.parseInt(JOptionPane.showInputDialog("Digite el segundo numero: "));
 
-        if(año == 0) {
-            JOptionPane.showMessageDialog(null, "Fecha incorrecta");
-        } else if ((mes == 2) && (dia >= 1 && dia<=28)) {
-            JOptionPane.showMessageDialog(null, "Fecha correcta");
-        } else if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && (dia>=1 && dia<=30)) {
-            JOptionPane.showMessageDialog(null, "Fecha Correcta");
-        } else if ((mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && (dia>=1 && dia<=31)) {
-            JOptionPane.showMessageDialog(null, "Fecha Correcta");
-        } else {
-            JOptionPane.showMessageDialog(null, "Fecha Incorrecta");
+        operacion = JOptionPane.showInputDialog("Digite la operacion que desea realizar: ").charAt(0);
+
+        switch(operacion) {
+            case 's':
+            case 'S': suma = numero1 + numero2;
+                    JOptionPane.showMessageDialog(null, "La suma es: "+suma);
+                    break;
+            case 'r':
+            case 'R': resta = numero1- numero2;
+                    JOptionPane.showMessageDialog(null, "La resta es: "+resta);
+                    break;
+            case 'p':
+            case 'P':
+            case 'm':
+            case 'M': mult = numero1 * numero2;
+                    JOptionPane.showMessageDialog(null, "La multiplicacion es: "+mult);
+                    break;
+            case 'd':
+            case 'D': div = numero1 / numero2;
+                    JOptionPane.showMessageDialog(null, "La division es: "+div);
+                    break;
+            default: JOptionPane.showMessageDialog(null, "Error, se equivoco de operación");
         }
     }
 }
