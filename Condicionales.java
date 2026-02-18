@@ -1,43 +1,42 @@
 
 
-/* Construir un programa que simule el funcionamiento de una calculadora que pueda realizar las cuatro operaciones aritméticas
-básicas (suma, resta, multiplicación y división) con valores numéricos enteros. El usuario debe especificar la operación con el primer 
-carácter del primer parámetro de la línea de comandos: S o s para la suma, R o r para la resta, P, p, M, o m para el producto y D o d para 
-la divisiónsun.  */
+/* Hacer un programa que simule un cajero automático con un saldo inicial de $1000
+con el siguiente menú de opciones:
+1. Ingresar dinero en la cuenta
+2. Retirar dinero de la cuenta
+3. Mostrar el saldo disponible
+4. Salir*/
 
 import javax.swing.JOptionPane;
 
 public class Condicionales {
 
     public static void main(String[] args) {
-        int numero1, numero2, suma, resta, mult, div;
-        char operacion;
+        final int saldoInicial = 1000;
+        int opcion;
+        float ingreso, saldoActual, retiro;
 
-        numero1 = Integer.parseInt(JOptionPane.showInputDialog("Digite el primer numero: "));
-        numero2 = Integer.parseInt(JOptionPane.showInputDialog("Digite el segundo numero: "));
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Bienvenido a su cajero automático\n" + "1. Ingresar dinero a la cuenta\n" + "2. Retirar dinero de la cuenta\n" + "3. Mostrar saldo de la cuenta\n" + "4. Salir"));
 
-        operacion = JOptionPane.showInputDialog("Digite la operacion que desea realizar: ").charAt(0);
+        switch(opcion) {
+            case 1: ingreso = Float.parseFloat(JOptionPane.showInputDialog("Digite la cantidad que desea ingresar en cuenta: "));
+                    saldoActual = saldoInicial + ingreso;
+                    JOptionPane.showMessageDialog(null, "Dinero en su cuenta: "+saldoActual);
+                    break;
+            case 2: retiro = Float.parseFloat(JOptionPane.showInputDialog("Digite la cantidad que desea retirar: "));
 
-        switch(operacion) {
-            case 's':
-            case 'S': suma = numero1 + numero2;
-                    JOptionPane.showMessageDialog(null, "La suma es: "+suma);
-                    break;
-            case 'r':
-            case 'R': resta = numero1- numero2;
-                    JOptionPane.showMessageDialog(null, "La resta es: "+resta);
-                    break;
-            case 'p':
-            case 'P':
-            case 'm':
-            case 'M': mult = numero1 * numero2;
-                    JOptionPane.showMessageDialog(null, "La multiplicacion es: "+mult);
-                    break;
-            case 'd':
-            case 'D': div = numero1 / numero2;
-                    JOptionPane.showMessageDialog(null, "La division es: "+div);
-                    break;
-            default: JOptionPane.showMessageDialog(null, "Error, se equivoco de operación");
+                if(retiro>saldoInicial){
+                    JOptionPane.showMessageDialog(null, "No cuenta con el saldo suficiente.");
+                } else {
+                    saldoActual = saldoInicial - retiro;
+                    JOptionPane.showMessageDialog(null, "Dinero en cuenta: "+saldoActual);
+                }
+                break;
+            case 3: JOptionPane.showMessageDialog(null, "Dinero en su cuenta: "+saldoInicial);
+                break;
+            case 4: break;
+            default: JOptionPane.showMessageDialog(null, "Se equivoco de opcion de menú");
+
         }
     }
 }
