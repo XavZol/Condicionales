@@ -3,24 +3,23 @@ import javax.swing.JOptionPane;
 
 
 
-/* un obrero necesita calcular su salario semanal, el cual se obtiene de la siguiente manera:
-Si trabaja 40horas o menos se le paga $16 por hora
-Si trabaja mas de 40 horas se le paga $16 por cada una de las primeras 40 horas y $20 por cada hora extra*/
+/* Hacer un programa que diga si dos numeros son pares o impares
+Condicionales compuestos*/
 
 public class Condicionales {
 
     public static void main(String[] args) {
-        int horasTrabajadas;
-        float salarioTotal;
+        int numero1, numero2;
 
-        horasTrabajadas = Integer.parseInt(JOptionPane.showInputDialog("Digite el numero de horas trabajadas: "));
+        numero1 = Integer.parseInt(JOptionPane.showInputDialog("Digite el primer numero: "));
+        numero2 = Integer.parseInt(JOptionPane.showInputDialog("Digite el segundo numero: "));
 
-        if(horasTrabajadas <= 40) {
-            salarioTotal = horasTrabajadas * 16;
+        if((numero1%2==0) && (numero2%2==0)) {
+            JOptionPane.showMessageDialog(null, "Ambos números son pares.");
+        } else if ((numero1%2!=0) && (numero2%2!=0)) {
+            JOptionPane.showMessageDialog(null, "Ambos números son impares.");
         } else {
-            salarioTotal = (40 * 16) + ((horasTrabajadas-40) * 20);
+            JOptionPane.showMessageDialog(null, "Algún número es par y el otro es impar.");
         }
-
-        JOptionPane.showMessageDialog(null, "El salario total es: "+salarioTotal);
     }
 }
