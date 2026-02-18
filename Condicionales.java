@@ -3,19 +3,21 @@ import javax.swing.JOptionPane;
 
 
 
-/* Hacer un programa que lea un carácter por teclado y compruebe si es una letra mayúscula */
+/*Descuento de 20% a los clientes que superen los $300*/
 
 public class Condicionales {
 
     public static void main(String[] args) {
-        char letra;
+        float precioCompra, descuento;
 
-        letra = JOptionPane.showInputDialog("Digite una letra:").charAt(0);
+        precioCompra = Float.parseFloat(JOptionPane.showInputDialog("Digite el precio de compra: "));
 
-        if(Character.isUpperCase(letra)) {
-            JOptionPane.showMessageDialog(null, "Es una letra MAYUSCULA");
+        if(precioCompra > 300) {
+            descuento = precioCompra * 0.2f;
+            precioCompra -= descuento;
+            JOptionPane.showMessageDialog(null, "El precio de compra con descuento es: "+precioCompra);
         } else {
-            JOptionPane.showMessageDialog(null, "Es una letra minuscula");
+            JOptionPane.showMessageDialog(null, "El precio de compra es: "+precioCompra);
         }
     }
 }
