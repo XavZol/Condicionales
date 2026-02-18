@@ -1,23 +1,24 @@
 
 import javax.swing.JOptionPane;
 
-/* Pedir 10 números y al final mostrar si se ha introducido alguno negativo*/
-
+/* Pedir 5 calificaciones de alumnos y decir al final si hay algún suspenso*/
 public class Condicionales {
 
     public static void main(String[] args) {
-        int numero;
-        boolean numNegativo=false;
-        for(int i=1; i<=10; i++) {
-            numero = Integer.parseInt(JOptionPane.showInputDialog("Digite un número: "));
-            if(numero < 0) {
-                numNegativo = true;
+        float calificacion;
+        boolean haySuspenso = false;
+        for (int i = 1; i <= 5; i++) {
+            do {
+                calificacion = Float.parseFloat(JOptionPane.showInputDialog("Digite una nota entre 0-10: "));
+            } while (calificacion < 0 || calificacion > 10);
+            if (calificacion < 5) {
+                haySuspenso = true;
             }
         }
-        if(numNegativo == true) {
-            JOptionPane.showMessageDialog(null, "Si existe al menos un número negativo");
+        if (haySuspenso) {
+            JOptionPane.showMessageDialog(null, "Hay al menos un suspenso");
         } else {
-            JOptionPane.showMessageDialog(null, "No existe ningún número negativo");
+            JOptionPane.showMessageDialog(null, "No hay ningún suspenso");
         }
     }
 }
