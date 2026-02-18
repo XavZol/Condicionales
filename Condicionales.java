@@ -1,31 +1,29 @@
 
 import javax.swing.JOptionPane;
 
-
-
-/* Pedir tres números y mostrarlos ordenados de mayr a menor*/
-
+/* pedir el día mes y año de una fecha e indicar si la fecha es correcta . Supioniendo que todos los meses son de
+30 días*/
 public class Condicionales {
 
     public static void main(String[] args) {
-        int n1, n2, n3;
+        int dia, mes, año;
 
-        n1 = Integer.parseInt(JOptionPane.showInputDialog("Digite el primer numero: "));
-        n2 = Integer.parseInt(JOptionPane.showInputDialog("Digite el segundo numero: "));
-        n3 = Integer.parseInt(JOptionPane.showInputDialog("Digite el tercer numero: "));
+        dia = Integer.parseInt(JOptionPane.showInputDialog("Digite el dia: "));
+        mes = Integer.parseInt(JOptionPane.showInputDialog("Digite el mes: "));
+        año = Integer.parseInt(JOptionPane.showInputDialog("Digite el año: "));
 
-        if((n1>n2) && (n2>n3)) {
-            JOptionPane.showMessageDialog(null, "Orden: "+n1+" - "+n2+" - "+n3);
-        } else if ((n1>n3) && (n3>n2)) {
-            JOptionPane.showMessageDialog(null, "Orden: "+n1+" - "+n3+" - "+n2);
-        } else if ((n2>n1) && (n1>n3)) {
-            JOptionPane.showMessageDialog(null, "Orden: "+n2+" - "+n1+" - "+n3);
-        } else if ((n2>n3) && (n3>n1)) {
-            JOptionPane.showMessageDialog(null, "Orden: "+n2+" - "+n3+" - "+n1);
-        } else if ((n3>n1) && (n1>n2)) {
-            JOptionPane.showMessageDialog(null, "Orden: "+n3+" - "+n1+" - "+n2);
+        if ((dia >= 1) && (dia <= 30)) {
+            if ((mes >= 1) && (mes <= 12)) {
+                if (año != 0) {
+                    JOptionPane.showMessageDialog(null, "Fecha correcta");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Fecha incorrecta, año incorrecto.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Fecha incorrecta, mes incorrecto.");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Orden: "+n3+" - "+n2+" - "+n1);
+            JOptionPane.showMessageDialog(null, "La fecha es incorrecta");
         }
     }
 }
