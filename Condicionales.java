@@ -3,40 +3,27 @@ import javax.swing.JOptionPane;
 
 
 
-/* Hacer un programa que pese de Kg a otra unidad de medida de masa, mostrar en pantalla 
-un menú con las opciones posibles.*/
+/* Dadas las 6 notas, escribir la cantidad de alumnos aprobados, condicionados (=4) y suspensos.*/
 
 public class Condicionales {
 
     public static void main(String[] args) {
-        float medida;
-        int opcion;
+        float nota;
+        int aprobados=0, condicionados=0, suspensos=0;
 
-        medida = Float.parseFloat(JOptionPane.showInputDialog("Digite la cantidad de kilogramos: "));
+        for(int i=1; i<=6; i++) {
+            do { 
+                nota = Float.parseFloat(JOptionPane.showInputDialog("Digite una nota entre 0-10. "));
+            } while(nota<0 || nota>10);
 
-        opcion = Integer.parseInt(JOptionPane.showInputDialog("MENU\n" + "1. Hectogramos\n" + "2. Decagramos\n" + "3. Gramos\n" + "4. Decigramos\n" + "5. Centigramos\n" + "6. Miligramos"));
-
-        switch(opcion) {
-            case 1: medida *= 10;
-                    JOptionPane.showMessageDialog(null, "La nueva medida en Hectogramo es: "+medida);
-                    break;
-            case 2: medida *= 100;
-                    JOptionPane.showMessageDialog(null, "La nueva medida en Decagramo es: "+medida);
-                    break;
-            case 3: medida *= 1000;
-                    JOptionPane.showMessageDialog(null, "La nueva medida en Gramo es: "+medida);
-                    break;
-            case 4: medida *= 10000;
-                    JOptionPane.showMessageDialog(null, "La nueva medida en Decigramo es: "+medida);
-                    break;
-            case 5: medida *= 100000;
-                    JOptionPane.showMessageDialog(null, "La nueva medida en Centigramo es: "+medida);
-                    break;
-            case 6: medida *= 1000000;
-                    JOptionPane.showMessageDialog(null, "La nueva medida en Miligramo es: "+medida);
-                    break;
-            default: JOptionPane.showMessageDialog(null, "Opcion no valida");
-                    break;
+            if(nota == 4) {
+                condicionados++;
+            } else if(nota>=5) {
+                aprobados++;
+            } else {
+                suspensos++;
+            }
         }
+        JOptionPane.showMessageDialog(null, "Aprobados: " + aprobados + "\nCondicionados: " + condicionados + "\nSuspensos: " + suspensos);
     }
 }
